@@ -1,0 +1,43 @@
+{
+  "name": "pentesting-command-generator",
+  "version": "1.0.0",
+  "description": "A MERN stack application for generating penetration testing commands",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "clean": "rm -rf node_modules && cd backend && rm -rf node_modules && cd ../frontend && rm -rf node_modules",
+    "seed": "cd backend && npm run seed",
+    "build": "cd frontend && npm run build",
+    "build:prod": "NODE_ENV=production cd frontend && npm run build",
+    "start": "cd backend && npm start",
+    "start:prod": "NODE_ENV=production cd backend && npm start",
+    "docker:build": "docker build -t pentesting-app .",
+    "docker:run": "docker run -p 9000:9000 pentesting-app",
+    "docker:up": "docker-compose up -d",
+    "docker:up:build": "docker-compose up --build -d",
+    "docker:down": "docker-compose down",
+    "docker:down:volumes": "docker-compose down -v",
+    "docker:logs": "docker-compose logs -f",
+    "docker:logs:app": "docker-compose logs -f app",
+    "docker:logs:db": "docker-compose logs -f mongodb",
+    "docker:clean": "docker system prune -a",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "echo \"Linting not configured\" && exit 0",
+    "format": "echo \"Formatting not configured\" && exit 0"
+  },
+  "keywords": [
+    "pentesting",
+    "security",
+    "mern",
+    "penetration-testing"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "concurrently": "^9.2.0"
+  }
+}
